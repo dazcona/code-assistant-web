@@ -1,0 +1,134 @@
+{
+  "version": "1",
+  "records": [
+    {
+      "question": "hello",
+      "answer": {
+        "text": "Hi human! I'm CoderBot, your computer programming tutor in DCU!",
+        "image": "hello.gif",
+        "next": [
+          { 
+            "text": "Hi CoderBot!", 
+            "key": "welcome"
+          }
+        ]
+      }
+    },
+    {
+      "question": "welcome",
+      "answer": {
+        "text": "I am so happy to see you here. I look forward to helping you become a hero-coder!",
+        "image": "hero.gif",
+        "next": [
+          { 
+            "text": "Thank you!", 
+            "key": "thanks"
+          },
+          { 
+            "text": "How can you do that for me?", 
+            "key": "help"
+          }
+        ]
+      }
+    },
+    {
+      "question": "thanks",
+      "answer": {
+        "text": "Your welcome",
+        "next": [
+          { 
+            "text": "How can you do that for me?", 
+            "key": "help"
+          }
+        ]
+      }
+    },
+    {
+      "question": "help",
+      "answer": {
+        "text": "What do you want to know?",
+        "next": [
+          { 
+            "text": "What is my predicted performance?", 
+            "key": "performance"
+          },
+          { 
+            "text": "Do you have any code solution for my failed submissions?", 
+            "key": "exercise"
+          },
+          { 
+            "text": "Do you have any advanced code snippets?", 
+            "key": "advanced"
+          }
+        ]
+      }
+    },
+    {
+      "question": "performance",
+      "answer": {
+        "text": "For the last week our records show that you are engaging well with the courseware and seem to be managing the module well. Well done you. Please keep up the good work this week for the module. Lab attendance is generally correlated with the student's performance. Try to make it to the next lab session so the lecturer and tutors can help you resolve any issue",
+        "image": "hurray.gif",
+        "next": [
+          { 
+            "text": "Cool, what else?", 
+            "key": "help"
+          },
+          { 
+            "text": "I might still need some help", 
+            "key": "support"
+          },
+          { 
+            "text": "Bye!", 
+            "key": "bye"
+          }
+        ]
+      }
+    },
+    {
+      "question": "support",
+      "answer": {
+        "text": "DCU cares about you. If you feel as though you need additional supports to help you with this, please contact your lecturer or DCU Student Support & Services at student.support@dcu.ie",
+        "next": [
+          { 
+            "text": "Cool", 
+            "key": "thanks"
+          }
+        ]
+      }
+    },
+    {
+      "question": "exercise",
+      "answer": {
+        "text": "Check out and give a try to this working version of exercise_01.py that by design is the closest to yours in the class:",
+        "code": "def divisors(n):\n\tfor d in range(1, n + 1):\n\t\tif n % d == 0:\n\t\t\tprint d",
+        "next": [
+          { 
+            "text": "Cool, what else?", 
+            "key": "help"
+          },
+          { 
+            "text": "Bye!", 
+            "key": "bye"
+          }
+        ]
+      }
+    },
+    {
+      "question": "advanced",
+      "answer": {
+        "text": "Python's namedtuples can be a great alternative to defining a class manually:",
+        "code": "# Why Python is Great: Namedtuples\n# Using namedtuple is way shorter than\n# defining a class manually:\n>>> from collections import namedtuple\n>>> Car = namedtuple('Car', 'color mileage')\n\n# Our new \"Car\" class works as expected:\n>>> my_car = Car('red', 3812.4)\n>>> my_car.color\n'red'\n>>> my_car.mileage\n3812.4\n\n# We get a nice string repr for free:\n>>> my_car\nCar(color='red' , mileage=3812.4)\n\n# Like tuples, namedtuples are immutable:\n>>> my_car.color = 'blue'\nAttributeError: \"can't set attribute\"",
+        "next": [
+          { 
+            "text": "Cool!", 
+            "key": "help"
+          },
+          { 
+            "text": "Bye!", 
+            "key": "bye"
+          }
+        ]
+      }
+    }
+  ]
+}

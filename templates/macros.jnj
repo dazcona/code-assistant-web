@@ -1,0 +1,13 @@
+{% macro display_bot_message(response) %}
+  {% if response.answer.text %} <p class="botText"> <span> {{ response.answer.text }} </span> </p> {% endif %}
+  {% if response.answer.image %} 
+    <img src="{{ url_for('static', filename = 'img/' + response.answer.image ) }}" style="height:50%;width:50%;" />
+  {% endif %}
+{% endmacro %}
+
+{% macro display_user_message(response) %}
+  {% for item in response.answer.next %}
+    <input class="btnInput" id="{{ item.key }}" type="submit" name="{{ item.key }}" value="{{ item.text }}" 
+    onclick="getBotResponse(this)">
+  {% endfor %}
+{% endmacro %}

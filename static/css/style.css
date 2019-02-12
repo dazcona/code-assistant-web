@@ -1,0 +1,83 @@
+body {
+    font-family: Sans-Serif;
+}
+
+#box {
+    background-color: #d1cfcf;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 25px;
+    border: 2px solid #8e8d8d;
+    padding: 20px;
+    height: 100%;
+    min-height: 100%;
+}
+
+#chatbox {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#userInput {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#textInput {
+    width: 90%;
+    border: none;
+    border-bottom: 3px solid #009688;
+    font-family: monospace;
+    font-size: 17px;
+    border-radius: 25px;
+}
+
+.btnInput {
+    background-color: #6889dd;
+    padding: 10px;
+    border-radius: 25px;
+    font-family: monospace;
+    font-size: 17px;
+    display: inline-block;
+    margin: 5px 2px;
+    cursor: pointer;
+}
+
+.line{
+    width: 100%;
+    padding: 10px 10px;
+    border-bottom: 2px solid #8e8d8d;
+}
+
+.userText {
+    font-family: monospace;
+    font-size: 18px;
+    text-align: right;
+    line-height: 30px;
+}
+
+.userText span {
+    background-color: lightcyan;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+.botText {
+    font-family: monospace;
+    font-size: 18px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.botText span {
+    background-color: lightgreen;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+.botCode {
+    font-size: 18px;
+    border-radius: 25px;
+}

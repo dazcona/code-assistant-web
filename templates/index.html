@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "macros.jnj" as common %}
+
+{% block page_content %}
+
+    <div id="box">
+      
+      <div id="chatbox">
+
+        {{ common.display_bot_message(response) | safe }}
+
+      </div>
+
+      <div class="line"></div>
+      
+      <div id="userInput">
+
+        {{ common.display_user_message(response) | safe }}
+
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <script>
+        
+        function getBotResponse(element) {
+          
+          var text = element.value;
+          var key = element.name;
+
+          var parent = element.parentNode;
+          while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+          }
+
+          var userHtml = '<p class="userText"><span>' + text + '</span></p>';
+          $("#chatbox").append(userHtml);
+          
+          $.get("/get", { key: key }).done(function(data) {
+
+            // Answer
+            var answer = data.answer;
+            
+            // Text
+            var text = answer.text;
+            var botHtml = '<p class="botText"><span>' + text + '</span></p>';
+            $("#chatbox").append(botHtml);
+
+            // Image
+            var image = answer.image;
+            if (image) {
+              var imageHtml = '<img src="static/img/' + image + '" style="height:50%;width:50%;" />';
+              $("#chatbox").append(imageHtml);
+            }
+
+            // Code
+            var code = answer.code;
+            if (code) {
+              var codeHtml = '<pre><code class="botCode"> ' + code + ' </code></pre>';
+              $("#chatbox").append(codeHtml);
+            }
+
+            var next = answer.next;
+            for (b in next) {
+              var item = next[b];
+              var btnHtml = '<input class="btnInput" id="' + item.key + '" type="submit" name="' + item.key + '" value="' + item.text + '" onclick="getBotResponse(this)">';
+              $("#userInput").append(btnHtml);
+            }
+
+            document.getElementById('end').scrollIntoView(
+              { block: 'start', behavior: 'smooth' });
+
+          });
+        }
+
+      </script>
+
+    </div>
+
+    <div id="end"></div>
+
+    <br>
+
+{% endblock %}
